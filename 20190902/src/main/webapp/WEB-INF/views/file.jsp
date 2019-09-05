@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>파일 업로드</title>
-    <link rel="stylesheet" href="/web/resources/css/file.css">
+    <link rel="stylesheet" href="/resources/css/file.css">
     <script>
     	var dt = new DataTransfer();
     	function formList(){
@@ -16,12 +16,13 @@
 				var fileName = obj.files[i].name;
 				var ext = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length);
 				console.log(fileName, ext);
+				var extLower = ext.toLowerCase();
 				var text = "";
-				if("txt" == ext) {
+				if("txt" == extLower) {
 					text = "텍스트";
-				} else if("pdf" == ext){
+				} else if("pdf" == extLower){
 					text = "문서";
-				} else if("jpg" == ext || "jpeg" == ext || "png" == ext) {
+				} else if("jpg" == extLower || "jpeg" == extLower || "png" == extLower) {
 					text = "이미지";
 				} else {
 					continue;
@@ -45,6 +46,7 @@
             </li>
 <!--             <li class="itemContainer">글자</li> -->
         </ul>
+        <input type="submit" value="전송">
         <button type="button" onclick="formList()">확인</button>
     </form>
 </body>
